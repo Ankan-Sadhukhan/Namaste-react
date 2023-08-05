@@ -19,7 +19,7 @@ const Body=()=>{
 
         const JSON =await data.json();
 
-        console.log(JSON);
+        // console.log(JSON);
         setListofrest(JSON?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setfilterRes(JSON?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     };
@@ -27,8 +27,9 @@ const Body=()=>{
     // if(Listofrest.length===0){
     //     return <h1>Loading......</h1>
     // }
+    // console.log(Listofrest);
 
-    return Listofrest.length ===0 ? (<Shimmer/>) : (
+    return (!Listofrest) ? (<Shimmer/>) : (
         <div className="body">
             <div className="filter">
                 <div className="search">

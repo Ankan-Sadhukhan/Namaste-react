@@ -30,7 +30,7 @@
     width: 220px;
     padding: 7px;
     border: 1px solid black;
-    /* margin: 10px; */
+    margin-bottom: 10px;
 }
 
 .logo-container img{
@@ -71,4 +71,10 @@
     display: flex;
     gap: 2rem;
     margin: 10px;
+}
+
+.user-card{
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
 }
