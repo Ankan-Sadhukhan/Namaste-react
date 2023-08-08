@@ -2,6 +2,8 @@ import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
+import userOnlineStatus from "../utils/userOnlineStatus";
 
 const Body=()=>{
     const [Listofrest,setListofrest]=useState([]);
@@ -9,6 +11,8 @@ const Body=()=>{
     const [filterRes,setfilterRes]=useState([]);
 
     const [searchText,setsearchText]=useState("");
+
+    const onlineStatus = userOnlineStatus();
 
     useEffect(()=>{
         fetchData();
@@ -28,6 +32,7 @@ const Body=()=>{
     //     return <h1>Loading......</h1>
     // }
     // console.log(Listofrest);
+    if(onlineStatus===false) return <h1>Looks like You're offline. Check your internet connection</h1>
 
     return (!Listofrest) ? (<Shimmer/>) : (
         <div className="body">
@@ -52,9 +57,17 @@ const Body=()=>{
 
 
             <div className="res-container">
-                {
-                filterRes.map((res)=> (<RestaurantCard key={res?.info?.feeDetails?.id} resData={res?.info} />))
-                }
+                
+                {filterRes.map((restaurant) => (
+          <Link
+            key={restaurant?.info.id}
+            to={"/restaurants/" + restaurant?.info.id}
+          >
+            {
+              <RestaurantCard resData={restaurant?.info} />
+            }
+          </Link>
+        ))}
             </div>
 
         </div>
