@@ -36,10 +36,10 @@ const Body=()=>{
 
     return (!Listofrest) ? (<Shimmer/>) : (
         <div className="body">
-            <div className="filter">
-                <div className="search">
-                    <input type="search" className="search-box" value={searchText} onChange={(e)=>setsearchText(e.target.value)} />
-                    <button onClick={()=>{
+            <div className="filter flex">
+                <div className="search m-4">
+                    <input type="search" className="search-box border border-black" value={searchText} onChange={(e)=>setsearchText(e.target.value)} />
+                    <button className="border m-4 px-4 py-1 rounded-lg bg-yellow-400" onClick={()=>{
                         const filterRestaurant=Listofrest.filter((res)=>
                         res.info.name.toLowerCase().includes(searchText.toLowerCase()))
                         setfilterRes(filterRestaurant);
@@ -47,7 +47,7 @@ const Body=()=>{
                 </div> 
             
             
-            <button className="filter-btn" onClick={()=> {
+            <button className="filter-btn border border-black m-8 px-4 py-1 bg-green-300 rounded-lg" onClick={()=> {
                 const filterdata=Listofrest.filter((data)=>data?.info?.avgRating >4);
                 setfilterRes(filterdata);
 
@@ -56,7 +56,7 @@ const Body=()=>{
 
 
 
-            <div className="res-container">
+            <div className="res-container flex flex-wrap place-content-around">
                 
                 {filterRes.map((restaurant) => (
           <Link

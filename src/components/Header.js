@@ -9,17 +9,17 @@ const Header=()=>{
     const onlineStatus = userOnlineStatus();
 
     return(
-        <div className="header">
+        <div className="header flex justify-between bg-purple-200 shadow-md">
             <div className="logo-container">
-                <img className="logo" src={LOGO_URL}></img>
+                <img className="logo h-32" src={LOGO_URL}></img>
             </div>
             <div className="nav-items">
-                <ul> 
-                    <li>Online status :{onlineStatus?"green":"red"}</li>
-                    <li><Link to="/" >Home</Link></li>
-                    <li><Link to="/about" >About Us</Link></li>
-                    <li><Link to="/contact" >Contact Us</Link></li>
-                    <li>Cart</li>
+                <ul className="flex m-4 p-4"> 
+                    <li className="p-4">Online status :{onlineStatus?" 🟢":" 🔴"}</li>
+                    <li className="p-4"><Link to="/" >Home</Link></li>
+                    <li className="p-4"><Link to="/about" >About Us</Link></li>
+                    <li className="p-4"><Link to="/contact" >Contact Us</Link></li>
+                    <li className="p-4">Cart</li>
                     <button className="login" onClick={() =>{
                         btnName==="Login"?setbtnName("Logout") : setbtnName("Login")
                     }}>{btnName}</button>
